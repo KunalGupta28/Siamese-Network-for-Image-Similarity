@@ -1,0 +1,82 @@
+
+This ensures:
+- Anchor is closer to the Positive sample
+- Anchor is farther from the Negative sample by at least a margin
+
+This loss is ideal for similarity-based learning problems.
+
+---
+
+### 5️⃣ Training Loop
+- Forward pass through the Siamese Network
+- Compute triplet loss
+- Backpropagation using the **Adam optimizer**
+- Batch-wise training using `DataLoader`
+- Training progress tracked using `tqdm`
+
+---
+
+### 6️⃣ Embedding Extraction
+After training:
+- All images are passed through the trained model
+- Embeddings are extracted and stored
+- These embeddings represent images in a learned feature space
+
+---
+
+### 7️⃣ Image Retrieval & Evaluation
+Given a query image:
+- Its embedding is computed
+- Distances to all stored embeddings are calculated
+- Closest images are retrieved based on distance
+- Results are visualized using `plot_closest_imgs`
+
+---
+
+## 📊 Technologies Used & Justification
+
+| Technology | Purpose |
+|---------|--------|
+| PyTorch | Core deep learning framework |
+| timm | Pretrained EfficientNet models |
+| Triplet Loss | Metric learning objective |
+| NumPy | Numerical operations |
+| Pandas | Dataset handling |
+| scikit-learn | Train/validation split |
+| scikit-image | Image loading |
+| Matplotlib | Visualization |
+| tqdm | Training progress tracking |
+| Custom Utils | Retrieval visualization |
+
+---
+
+## 📁 Project Structure
+├── Deep_Learning_with_PyTorch_Siamese_Network.ipynb
+├── utils.py
+│ └── plot_closest_imgs()
+├── data/
+│ ├── train/
+│ └── test/
+├── requirements.txt
+└── README.md
+
+
+---
+
+## 🚀 How to Run the Project
+
+### 1️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
+
+
+2️⃣ Open the Notebook
+jupyter notebook Deep_Learning_with_PyTorch_Siamese_Network.ipynb
+
+3️⃣ Execute All Cells
+
+Train the Siamese Network
+
+Generate embeddings
+
+Perform image retrieval
